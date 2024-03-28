@@ -1,0 +1,8 @@
+rupa/z
+
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/golang
+
+romkatv/powerlevel10k
+
