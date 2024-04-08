@@ -19,12 +19,16 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+{{ if eq .chezmoi.os "darwin"}}
 export PATH="/opt/homebrew/bin:$PATH"
+{{ end }}
 
 export PATH="$(go env GOPATH)/bin:$PATH"
 
 source ~/.antidote/antidote.zsh
+{{ if eq .chezmoi.os "darwin"}}
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+{{ end }}
 antidote load ~/.zsh_plugins.txt
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
