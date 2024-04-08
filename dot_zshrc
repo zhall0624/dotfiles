@@ -31,4 +31,4 @@ antidote load ~/.zsh_plugins.txt
 
 alias vim=nvim
 
-neofetch
+# neofetch
