@@ -24,8 +24,9 @@ export PATH="/opt/homebrew/bin:$PATH"
 {{ end }}
 
 export PATH="$(go env GOPATH)/bin:$PATH"
-
+{{ if eq .chezmoi.os "linux" }}
 source ~/.antidote/antidote.zsh
+{{ end }}
 {{ if eq .chezmoi.os "darwin"}}
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 {{ end }}
