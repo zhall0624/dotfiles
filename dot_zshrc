@@ -19,13 +19,13 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc
+export PATH="/opt/homebrew/bin:$PATH"
 
-export TERMINAL=xfce4-terminal
+export PATH="$(go env GOPATH)/bin:$PATH"
+
 source ~/.antidote/antidote.zsh
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 antidote load ~/.zsh_plugins.txt
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
