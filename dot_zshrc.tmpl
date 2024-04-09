@@ -31,6 +31,9 @@ source ~/.antidote/antidote.zsh
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 {{ end }}
 antidote load ~/.zsh_plugins.txt
+
+eval "$(zoxide init zsh)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
