@@ -29,6 +29,7 @@ source ~/.antidote/antidote.zsh
 {{ end }}
 {{ if eq .chezmoi.os "darwin"}}
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+eval "$(rbenv init - zsh)"
 {{ end }}
 antidote load ~/.zsh_plugins.txt
 
