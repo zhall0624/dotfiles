@@ -1,0 +1,21 @@
+session: automator 3030
+
+root: ~/src/automator3030
+
+windows: 
+  - name: vim
+    root: .
+    commands:
+      - vim .
+  - name: shell
+    root: .
+    layout: main-horizontal
+    panes: 
+      - type: vertical
+        root: backend
+        commands: 
+          - air
+      - type: vertical
+        root: frontend
+        commands: 
+          - yarn dev

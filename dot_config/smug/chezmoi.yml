@@ -1,0 +1,16 @@
+session: chezmoi
+root: ~/.local/share/chezmoi
+stop: 
+  - chezmoi apply
+  - source ~/.zshrc
+windows:
+  - name: config
+    root: .
+    commands:
+      - vim .
+  - name: shell
+    layout: tiled
+    root: .
+    panes:
+      - name: root 
+        root: ~/

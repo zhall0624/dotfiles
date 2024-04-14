@@ -26,6 +26,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 {{ if eq .chezmoi.os "linux" }}
 source ~/.antidote/antidote.zsh
+. /opt/asdf-vm/asdf.sh
 {{ end }}
 {{ if eq .chezmoi.os "darwin"}}
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
@@ -39,5 +40,5 @@ eval "$(zoxide init zsh)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias vim=nvim
-
+EDITOR=nvim
 # neofetch
