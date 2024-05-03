@@ -1,0 +1,25 @@
+packages:
+  darwin:
+    brews:
+      - antidote
+      - fzf
+      - gh
+      - k6
+      - k9s
+      - postgresql@14
+      - postgresql@16
+      - postgis
+      - neovim
+      - smug
+      - spotify_player
+      - starship
+      - tailscale
+      - terraform
+      - tmux
+      - zoxide
+    casks:
+      - alacritty
+      - font-hack-nerd-font
+      - keycastr
+      - hammerspoon
+      - rectangle
