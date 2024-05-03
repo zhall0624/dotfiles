@@ -20,12 +20,11 @@ export PATH="$(go env GOPATH)/bin:$PATH"
 {{ if eq .chezmoi.os "linux" }}
 source ~/.antidote/antidote.zsh
 . /opt/asdf-vm/asdf.sh
-
 {{ end }}
 
 {{ if eq .chezmoi.os "darwin"}}
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-eval "$(rbenv init - zsh)"
+ . /opt/homebrew/opt/asdf/libexec/asdf.sh
 {{ end }}
 
 antidote load ~/.zsh_plugins.txt
@@ -33,9 +32,6 @@ antidote load ~/.zsh_plugins.txt
 eval "$(zoxide init zsh)"
 
 eval "$(starship init zsh)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias vim=nvim
 EDITOR=nvim
