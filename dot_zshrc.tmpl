@@ -16,6 +16,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 {{ end }}
 
 export PATH="$(go env GOPATH)/bin:$PATH"
+export PATH="$PATH:${HOME}/.cache/rebar3/bin"
 
 {{ if eq .chezmoi.os "linux" }}
 source ~/.antidote/antidote.zsh
