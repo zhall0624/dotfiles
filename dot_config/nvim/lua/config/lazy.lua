@@ -19,6 +19,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.editor.mini-move" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
+    { import = "lazyvim.plugins.extras.editor.aerial" },
     -- import/override with your plugins
     { import = "plugins" },
   },
