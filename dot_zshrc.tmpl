@@ -93,3 +93,8 @@ alias cd="z"
 alias googam="/Users/zacharyhall/bin/gam/gam"
 
 export EDITOR=nvim
+
+# Start Tmux on term boot
+if [[ -z $TMUX ]]; then 
+  sesh connect "~"
+fi 
