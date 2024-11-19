@@ -1,6 +1,6 @@
 k9s:
   ui:
-    logoless: false
+    enableMouse: true
     skin: catppuccin-macchiato-transparent
     # skin: catppuccin-mocha
     # ...or another flavor:

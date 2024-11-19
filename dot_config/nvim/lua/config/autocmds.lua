@@ -8,3 +8,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.schedule(require("chezmoi.commands.__edit").watch)
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
