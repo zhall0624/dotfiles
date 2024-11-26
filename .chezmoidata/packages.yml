@@ -8,6 +8,7 @@ packages:
       - fd
       - gh
       - git-delta
+      - jq
       - k6
       - k9s
       - postgresql@14
