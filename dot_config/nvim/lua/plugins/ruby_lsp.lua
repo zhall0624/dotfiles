@@ -13,7 +13,11 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        ruby_lsp = {},
+        ruby_lsp = {
+          mason = false,
+          enabled = true,
+          cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
+        },
       },
     },
   },
