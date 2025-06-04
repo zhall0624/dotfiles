@@ -26,12 +26,10 @@ export K9S_CONFIG_DIR="${HOME}/.config/k9s"
 
 {{ if eq .chezmoi.os "linux" }}
 source ~/.antidote/antidote.zsh
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 {{ end }}
 
 {{ if eq .chezmoi.os "darwin"}}
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 {{ end }}
 
 antidote load ~/.zsh_plugins.txt
