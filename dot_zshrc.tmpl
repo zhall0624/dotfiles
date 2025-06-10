@@ -24,6 +24,8 @@ export K9S_CONFIG_DIR="${HOME}/.config/k9s"
 
 . "$HOME/.cargo/env"
 
+eval "$(mise activate zsh)"
+
 {{ if eq .chezmoi.os "linux" }}
 source ~/.antidote/antidote.zsh
 {{ end }}

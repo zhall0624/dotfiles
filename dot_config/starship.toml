@@ -11,26 +11,26 @@ $directory\
 $character\
 """
 
-right_format = """
-$c\
-$elixir\
-$elm\
-$golang\
-$gradle\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-$ruby\
-$scala\
-$docker_context\
-$git_branch\
-$git_status\
-$time\
-$os\
-"""
+# right_format = """
+# $c\
+# $elixir\
+# $elm\
+# $golang\
+# $gradle\
+# $haskell\
+# $java\
+# $julia\
+# $nodejs\
+# $nim\
+# $rust\
+# $ruby\
+# $scala\
+# $docker_context\
+# $git_branch\
+# $git_status\
+# $time\
+# $os\
+# """
 
 [aws]
 symbol = "  "
