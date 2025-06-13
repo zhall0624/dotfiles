@@ -7,12 +7,19 @@
   "gtk-layer-shell": true,
   "height": 39,
   "modules-left": ["sway/workspaces"],
+  "modules-center": [
+    "mpris"
+  ],
   "modules-right": [
     "tray" ,
     "idle_inhibitor" ,
+    "cava",
     "pulseaudio",
+    "pulseaudio#microphone",
     "network",
-    "clock"
+    "clock",
+    "custom/launch_fuzzel",
+    "custom/launch_wlogout"
   ],
   "sway/window": {
     "format": "{}"
@@ -35,35 +42,38 @@
   },
 
   "clock": {
-    // "format": "{: %I:%M %p}",
-    // "format": "{:󰸘 %D  %H:%M}",
     "format": "{:L%H:%M  󰸘 %D}",
     "tooltip": true,
     "interval": 60,
-    // "calendar": {
-    //   "mode"          : "year",
-    //   "mode-mon-col"  : 3,
-    //   "weeks-pos"     : "right",
-    //   "on-scroll"     : 1,
-    //   "format": {
-    //     "months":     "<span color='#ffead3'><b>{}</b></span>",
-    //     "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-    //     "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-    //     "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-    //     "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-    //   }
-    // },
-    // "actions":  {
-    //   "on-click-right": "mode",
-    //   "on-scroll-up": "tz_up",
-    //   "on-scroll-down": "tz_down",
-    //   "on-scroll-up": "shift_up",
-    //   "on-scroll-down": "shift_down"
-    // }
   },
 
+  "cava": {
+    // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    "framerate": 30,
+    "autosens": 1,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "hide_on_silence": false,
+    // "format_silent": "quiet",
+    "method": "pipewire",
+    "monstercat": true,
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "actions": {
+                "on-click-right": "mode"
+                }
+    },
+
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}   {volume}%",
     "tooltip": false,
     "format-muted": " Muted",
     "on-click": "pamixer -t",
@@ -96,7 +106,7 @@
     "format-icons": {
         "activated": " ",
         "deactivated": " "
-    }
+    },
   },
 
   "temperature": {
@@ -126,15 +136,25 @@
   },
 
   "custom/launch_fuzzel": {
-    "format": "   ",
+    "format": "",
     "on-click": "pkill fuzzel; fuzzel",
     "tooltip": false
   },
 
   "custom/launch_wlogout": {
-    "format": "⏻  ",
+    "format": "⏻",
     "on-click": "wlogout",
     "tooltip": false
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
   }
-
 }

@@ -62,6 +62,10 @@ tooltip {
 #tray,
 #idle_inhibitor,
 #backlight,
+#cava,
+#custom-launch_wlogout,
+#custom-launch_fuzzel,
+#mpris,
 #placeholder {
   background: #1e1e2e;
   background: #313244;
@@ -90,6 +94,29 @@ tooltip {
 #idle_inhibitor {
   border-radius: 10px;
   margin-right: 10px;
+}
+
+#custom-launch_wlogout {
+  border-radius: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #eba0ac;
+}
+
+#custom-launch_fuzzel {
+  border-radius: 10px;
+  padding-right: 14px;
+  margin-right: 10px;
+}
+
+#cava {
+  border-radius: 15px;
+  color: #cba6f7;
+}
+
+#mpris {
+  color: #a6da95;
+  border-radius: 15px;
 }
 
 #tray {
@@ -122,7 +149,7 @@ tooltip {
 
 #network {
   color: #f9e2af;
-  border-radius: 0px 15px 15px 0px;
+  border-radius: 10px;
   border-left: 0px;
   border-right: 0px;
   padding-right: 17px;

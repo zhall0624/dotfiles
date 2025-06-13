@@ -5,7 +5,11 @@
 font pango: Hack Nerd Font Mono Regular 14
 
 # scaling
-output DP-2 scale 1.5
+output DP-1 scale 1.5 mode 3840x2160@143.999Hz
+
+# gsync
+output * adaptive_sync on
+
 # background
 output * bg '$HOME/.config/endeavour-black-4k.png' fill
 # set the mod key to the winkey:
@@ -16,9 +20,8 @@ set $right l
 set $down j
 set $left h
 
-set $term footclient
+set $term ghostty
 set $menu fuzzel
-
 # exec pipewire
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 ### Idle configuration
@@ -32,6 +35,7 @@ exec swayidle -w \
 bindsym $mod+Escape exec 'swaylock'
 
 include catppuccin-mocha
+
 # target                 title     bg    text   indicator  border
 client.focused           $lavender $base $text  $rosewater $lavender
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
@@ -40,6 +44,9 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
+bindsym $mod+p       exec ~/.config/grim/focused_window.sh
+bindsym $mod+Shift+p exec grim -g "$(slurp)"
+bindsym $mod+Ctrl+p  exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 #####################
 # workspace layout: #
 #####################
@@ -127,7 +134,7 @@ bindsym $mod+r mode "resize"
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id ghostty
 
 # kill focused window
 bindsym $mod+q kill
@@ -137,9 +144,6 @@ bindsym $mod+Shift+e exec wlogout
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to update i3)
-bindsym $mod+Shift+r restart
 
 # change focus
 bindsym $mod+$left focus left
@@ -189,8 +193,13 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 
+set $opacity 0.7
+for_window [class=".*"] opacity $opacity
+for_window [app_id=".*"] opacity $opacity
+# don't make the browser opaque for video reasons
+for_window [app_id="zen"] opacity 1
 # SwayFX Config
-corner_radius 5
+corner_radius 8
 blur enable
 blur_passes 4
 
@@ -217,7 +226,7 @@ exec --no-startup-id /usr/bin/dunst
 exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-exec --no-startup-id sleep 2 && alacritty
+exec --no-startup-id sleep 2 && ghostty
 
 ##################
 # floating rules #
@@ -244,3 +253,10 @@ bar {
   swaybar_command waybar
 }
 
+set $gnome-schema org.gnome.desktop.interface
+
+# GTK cursors suck, gotta use this
+seat * xcursor_theme catppuccin-macchiato-lavender-cursors 24
+
+# GTK themes suck gotta use this
+exec_always gsettings set $gnome-schema gtk-theme 'catppuccin-macchiato-mauve-standard+default'

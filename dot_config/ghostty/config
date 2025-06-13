@@ -1,6 +1,6 @@
 theme = catppuccin-macchiato
 font-family = Hack Nerd Font Mono
-background-opacity = 0.97
+background-opacity = 0.7
 window-decoration = false
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 shell-integration = zsh
