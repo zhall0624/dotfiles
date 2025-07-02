@@ -1,0 +1,19 @@
+include ~/.config/newsboat/dark
+
+auto-reload yes
+reload-threads 10
+
+# browser
+browser "open %u"
+# -- navigation ----------------------------------------------------------------
+
+goto-next-feed no
+
+bind-key j down feedlist
+bind-key k up feedlist
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key j down article
+bind-key k up article
