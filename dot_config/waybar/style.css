@@ -8,9 +8,10 @@
 }
 
 window#waybar {
-  background: rgba(21, 18, 27, 0);
-  background: #1e1e2e;
-  color: #cdd6f4;
+  background-color: transparent
+  /* background: rgba(21, 18, 27, 0); */
+  /* background: #1e1e2e; */
+  /* color: #cdd6f4; */
 }
 
 tooltip {
@@ -28,7 +29,6 @@ tooltip {
 }
 
 #workspaces button.active {
-  color: #a6adc8;
   color: #cba6f7;
 }
 
@@ -51,7 +51,6 @@ tooltip {
 }
 
 #custom-power_profile,
-#window,
 #clock,
 #battery,
 #pulseaudio,
@@ -67,9 +66,8 @@ tooltip {
 #custom-launch_fuzzel,
 #mpris,
 #placeholder {
-  background: #1e1e2e;
   background: #313244;
-  opacity: 0.8;
+  opacity: 0.75;
   padding: 0px 10px;
   margin: 3px 0px;
   margin-top: 5px;
@@ -115,8 +113,12 @@ tooltip {
 }
 
 #mpris {
-  color: #a6da95;
+  color: #91d7e3;
   border-radius: 15px;
+}
+
+#mpris.paused {
+  color: #f4dbd6
 }
 
 #tray {

@@ -6,13 +6,18 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   "height": 39,
-  "modules-left": ["sway/workspaces"],
+  "modules-left": [
+    "sway/workspaces"
+  ],
+  "reload-style-on-change": true,
+  "ipc": true,
+  "id": "bar-0",
   "modules-center": [
     "mpris"
   ],
   "modules-right": [
-    "tray" ,
-    "idle_inhibitor" ,
+    "tray",
+    "idle_inhibitor",
     "cava",
     "pulseaudio",
     "pulseaudio#microphone",
@@ -24,7 +29,6 @@
   "sway/window": {
     "format": "{}"
   },
-
   "workspace": {
     "format": " {}",
     "disable-scroll": false
@@ -35,18 +39,15 @@
     "format": "{icon}",
     "on-click": "activate",
   },
-
   "tray": {
     "icon-size": 18,
     "spacing": 10
   },
-
   "clock": {
     "format": "{:L%H:%M  󰸘 %D}",
     "tooltip": true,
     "interval": 60,
   },
-
   "cava": {
     // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
     "framerate": 30,
@@ -66,12 +67,20 @@
     "waves": false,
     "noise_reduction": 0.77,
     "input_delay": 2,
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
     "actions": {
-                "on-click-right": "mode"
-                }
-    },
-
+      "on-click-right": "mode"
+    }
+  },
   "pulseaudio": {
     "format": "{icon}   {volume}%",
     "tooltip": false,
@@ -87,10 +96,13 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     }
   },
-
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": " {volume}%",
@@ -100,22 +112,19 @@
     "on-scroll-down": "pamixer --default-source -d 5",
     "scroll-step": 5
   },
-
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-        "activated": " ",
-        "deactivated": " "
+      "activated": " ",
+      "deactivated": " "
     },
   },
-
   "temperature": {
     "thermal-zone": 1,
     "format": "{temperatureF}°F ",
     "critical-threshold": 80,
     "format-critical": "{temperatureC}°C "
   },
-
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "  {essid} {signalStrength}%",
@@ -125,7 +134,6 @@
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
   },
-
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "", // an empty format will hide the module
@@ -134,13 +142,11 @@
     "tooltip-format-connected": " {device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}"
   },
-
   "custom/launch_fuzzel": {
     "format": "",
     "on-click": "pkill fuzzel; fuzzel",
     "tooltip": false
   },
-
   "custom/launch_wlogout": {
     "format": "⏻",
     "on-click": "wlogout",
@@ -149,8 +155,11 @@
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "dynamic-len": 30,
     "player-icons": {
       "default": "▶",
+      "Spot": " ",
+      "firefox": " ",
       "mpv": "🎵"
     },
     "status-icons": {

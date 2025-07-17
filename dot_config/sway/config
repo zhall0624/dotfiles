@@ -11,7 +11,8 @@ output DP-1 scale 1.5 mode 3840x2160@143.999Hz
 output * adaptive_sync on
 
 # background
-output * bg '$HOME/.config/endeavour-black-4k.png' fill
+output * bg '$HOME/.config/wallpapers/comfy-home.png' fill
+
 # set the mod key to the winkey:
 set $mod Mod4
 
@@ -132,6 +133,8 @@ bindsym $mod+r mode "resize"
 ######################################
 # keybindings for different actions: #
 ######################################
+# bg picker
+bindsym $mod+Shift+D exec "$HOME/.config/sway/bg_picker
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id ghostty
@@ -193,16 +196,30 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 
-set $opacity 0.7
-for_window [class=".*"] opacity $opacity
-for_window [app_id=".*"] opacity $opacity
+# set $opacity 0.7
+# for_window [class=".*"] opacity $opacity
+# for_window [app_id=".*"] opacity $opacity
 # don't make the browser opaque for video reasons
 for_window [app_id="zen"] opacity 1
 # SwayFX Config
 corner_radius 8
 blur enable
 blur_passes 4
+blur_radius 2
 
+layer_effects "waybar" {
+    blur enable;
+    blur_xray enable;
+    blur_passes 4;
+    blur_radius 2;
+}
+
+layer_effects "gtk-layer-shell" {
+    blur enable;
+    blur_xray enable;
+    blur_radius 2;
+    blur_passes 4;
+}
 #############################################
 # autostart applications/services on login: #
 #############################################
@@ -227,6 +244,7 @@ exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
 exec --no-startup-id sleep 2 && ghostty
+exec --no-startup-id steam -silent
 
 ##################
 # floating rules #

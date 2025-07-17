@@ -1,0 +1,11 @@
+#! /usr/bin/bash
+wpdir="$HOME/.config/wallpapers"
+wps=$(find "$wpdir" -type f -name "*.png")
+swps=$(for p in $wps; do
+  basename "$p" .png
+done)
+image=$(for a in $swps; do echo -e "$a\0icon\x1f$wpdir/$a.png"; done | fuzzel --dmenu)
+if [[ -z $image ]]; then
+  exit 1
+fi
+swaymsg output "*" bg "$wpdir/$image.png" fill
