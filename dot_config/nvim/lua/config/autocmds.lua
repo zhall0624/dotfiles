@@ -22,3 +22,9 @@ vim.api.nvim_create_autocmd("User", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("BufRead", {
+  callback = function(_)
+    vim.cmd("setf tiltfile")
+  end,
+})
