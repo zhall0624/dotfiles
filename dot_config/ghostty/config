@@ -1,7 +1,7 @@
 theme = everforest-dark
 font-family = Hack Nerd Font Mono
 background-opacity = 0.70
-window-decoration = true
+window-decoration = false
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 shell-integration = zsh
 macos-window-shadow = false

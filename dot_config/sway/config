@@ -55,10 +55,6 @@ bindsym $mod+Ctrl+p  exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select
 # default sway tiling mode:
 workspace_layout default
 
-# ScratchPad
-# Sway has a "scratchpad", which is a bag of holding for windows.
-# You can send windows there and get them back later.
-
 # Move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
@@ -69,6 +65,7 @@ bindsym $mod+minus scratchpad show
 ##############################
 # extra options for windows: #
 ##############################
+exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 
 #border indicator on windows:
 default_border pixel
@@ -154,23 +151,11 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -196,10 +181,6 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 
-# set $opacity 0.7
-# for_window [class=".*"] opacity $opacity
-# for_window [app_id=".*"] opacity $opacity
-# don't make the browser opaque for video reasons
 for_window [app_id="zen"] opacity 1
 # SwayFX Config
 corner_radius 8
@@ -220,22 +201,11 @@ layer_effects "gtk-layer-shell" {
     blur_radius 2;
     blur_passes 4;
 }
-#############################################
-# autostart applications/services on login: #
-#############################################
 
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Desktop notifications
-# dunst config used ~/.config/dunst/dunstrc
-# set alternative config if needed:
-#exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
-# may need to run dbus-launch explicitly:
-#exec --no-startup-id dbus-launch /usr/bin/dunst
 exec --no-startup-id /usr/bin/dunst
-# alternative if you installed aside with XFCE4:
-# exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 # autotiling script
 # https://github.com/nwg-piotr/autotiling
