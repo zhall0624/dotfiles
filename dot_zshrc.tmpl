@@ -102,6 +102,14 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+#
+# fy: fuzzy-search installed AUR packages via yay,
+#     with multi-select support and a live preview showing package info and file list via bat,
+#     then installs the chosen packages.
+alias fy='fzfyay'
+fzfyay () {
+  yay -Slq | fzf -m --preview 'bat <(yay -Si {1}) <(yay -Fl {1} | awk "{print \$2}")' | xargs -ro  yay -S
+}
 alias vim=nvim
 alias sc='sesh connect $(sesh list | fzf)'
 alias cd="z"
